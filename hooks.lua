@@ -132,11 +132,7 @@ function OnPlayerMoving(a_Player, a_OldPosition, a_NewPosition)
 	end
 	
 	local World = a_Player:GetWorld()
-	a_Player:TeleportToCoords(
-		World:GetSpawnX(),
-		World:GetSpawnY(),
-		World:GetSpawnZ()
-	)
+	return true
 end
 
 

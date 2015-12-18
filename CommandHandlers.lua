@@ -52,7 +52,15 @@ function HandleRegisterCommand(a_Split, a_Player)
 		a_Player:SendMessage(Err)
 		return true
 	end
-	
+	-- Change the default rank to Registered rank
+	local PlayerName = a_Player:GetName()
+	local PlayerUUID = a_Player:GetUUID()
+	local PlayerRank = cRankManager:GetPlayerRankName(PlayerUUID)
+	RankName = "Registered"
+	if (PlayerRank == "Default") then
+		cRankManager:SetPlayerRank(PlayerUUID, PlayerName, RankName)
+	end
+	a_Player:LoadRank() -- reload the rank ingame
 	a_Player:SendMessage("You have registered")
 	return true
 end

@@ -168,6 +168,7 @@ function cPlayerState:TeleportBack()
 	
 	self:DoWithPlayer(
 		function(a_Player)
+			a_Player:SetInvulnerableTicks(20) -- Added invulnerability for 1 second to avoid death from height change from spawn
 			a_Player:TeleportToCoords(
 				self.m_StartPos.x,
 				self.m_StartPos.y,
